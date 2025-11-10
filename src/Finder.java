@@ -1,6 +1,4 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Finder
@@ -13,9 +11,9 @@ import java.util.HashMap;
 
 public class Finder {
 
-    private static HashMap hashMap;
+    private static Hashmap hashmap;
     public Finder() {
-        hashMap = new HashMap();
+        hashmap = new Hashmap();
     }
 
     // creating the data structure
@@ -26,12 +24,12 @@ public class Finder {
             String[] arr = line.split(",");
             String key = arr[keyCol];
             String value = arr[valCol];
-            hashMap.insert(key, value);
+            hashmap.insert(key, value);
         }
         br.close();
     }
     // getting the value from the data structure given the key
     public String query(String key){
-        return hashMap.findValue(key);
+        return hashmap.findValue(key);
     }
 }
