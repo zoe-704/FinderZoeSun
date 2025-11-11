@@ -16,19 +16,20 @@ public class Finder {
         hashmap = new Hashmap();
     }
 
-    // creating the data structure
+    // Read and insert data from csv file into hashmap
     public void buildTable(BufferedReader br, int keyCol, int valCol) throws IOException {
         String line;
         while ((line = br.readLine()) != null) {
-            // Process data in each line
+            // Process data in each line of csv file to get the key and value
             String[] arr = line.split(",");
             String key = arr[keyCol];
             String value = arr[valCol];
-            hashmap.insert(key, value);
+            // Insert key value pair into hashmap
+            hashmap.insert(new Pair(key, value));
         }
         br.close();
     }
-    // getting the value from the data structure given the key
+    // Return the value of a key in the hashmap
     public String query(String key){
         return hashmap.findValue(key);
     }
